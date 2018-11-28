@@ -16,23 +16,28 @@ namespace pesel
             //int intPesel = Convert.ToInt32(strPesel);
             char[] litery = strPesel.ToArray();
 
-            for (int k = 0; k < litery.Length; k++)
-            {
-                Console.WriteLine(litery[k]);
-            }
-           
             int[] cyfry = new int[11];
             for (int k = 0; k < litery.Length; k++)
             {
                 cyfry[k]=Convert.ToInt16(litery[k])-48;
                 Console.WriteLine(cyfry[k]);
             }
-            int intMTH=cyfry[2]*10+cyfry[3];
+            int intROK=cyfry[0]*10+cyfry[1];//rok dwucyfrowo
+            int intMTH=cyfry[2]*10+cyfry[3];//miesiąc dwucyfrowo
+            int intDAY=cyfry[4]*10+cyfry[5];//dzień dwucyfrowo
+            
+            if (intDAY>31)
+	        {
+                Console.WriteLine("oszukałeś z datą dzienną.");
+	        }
+            
             if (intMTH>12)
-	{
-                Console.WriteLine("za dużo miesięcy. XXI wiek?");
-	}
-            Console.WriteLine(paraDZIEN);   //pokazuje się pozostałość po wycięciu
+	        {Console.WriteLine("za dużo miesięcy. XXI wiek?");
+                do {intMTH-=20;} 
+                while(intMTH>12);
+                Console.WriteLine("Zmniejszyłem numer miesiąca do "+intMTH);
+	        }
+            
             Console.ReadKey();
 
         }
