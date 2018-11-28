@@ -20,11 +20,18 @@ namespace pesel
             {
                 Console.WriteLine(litery[k]);
             }
-            String paraROK = strPesel.Remove(0, 2);
-            String paraMIESIAC = strPesel.Remove(2, 2);
-            String paraDZIEN = strPesel.Remove(4, 2);
-            String czworkaROK = strPesel.Remove(6, 4);
-
+           
+            int[] cyfry = new int[11];
+            for (int k = 0; k < litery.Length; k++)
+            {
+                cyfry[k]=Convert.ToInt16(litery[k])-48;
+                Console.WriteLine(cyfry[k]);
+            }
+            int intMTH=cyfry[2]*10+cyfry[3];
+            if (intMTH>12)
+	{
+                Console.WriteLine("za dużo miesięcy. XXI wiek?");
+	}
             Console.WriteLine(paraDZIEN);   //pokazuje się pozostałość po wycięciu
             Console.ReadKey();
 
