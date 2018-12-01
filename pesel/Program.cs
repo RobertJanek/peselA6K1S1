@@ -16,6 +16,8 @@ namespace pesel
             //int intPesel = Convert.ToInt32(strPesel);
             char[] litery = strPesel.ToArray();
 
+            //int[] litert=Convert.ToString(strPesel.ToCharArray());
+
             int[] cyfry = new int[11];
             for (int k = 0; k < litery.Length; k++)
             {
