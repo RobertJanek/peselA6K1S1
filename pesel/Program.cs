@@ -38,9 +38,7 @@ namespace pesel
                 do {intMTH-=20;} 
                 while(intMTH>12);
                 Console.WriteLine("Zmniejszyłem numer miesiąca do "+intMTH);
-
-                //gjhgjyutyuytuygjhjh
-
+		 //przeglądarka
 	        }
             
             Console.ReadKey();
